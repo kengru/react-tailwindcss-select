@@ -15,6 +15,7 @@ export interface GroupOption {
 export type Options = Array<Option | GroupOption>;
 
 export interface ClassNames {
+    secondLevel?: string;
     menuButton?: (value?: { isDisabled?: boolean }) => string;
     menu?: string;
     tagItem?: (value?: { item?: Option; isDisabled?: boolean }) => string;

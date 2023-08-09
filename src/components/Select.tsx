@@ -151,7 +151,7 @@ const Select: React.FC<SelectProps> = ({
         }`;
 
         return classNames && classNames.menuButton
-            ? classNames.menuButton({ isDisabled })
+            ? defaultClass + classNames.menuButton({ isDisabled })
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
 
@@ -166,6 +166,11 @@ const Select: React.FC<SelectProps> = ({
         [classNames, isDisabled]
     );
 
+    const getSecondLevelClass = useCallback(
+        () => (classNames?.secondLevel ? classNames.secondLevel : "relative w-full"),
+        [classNames]
+    );
+
     return (
         <SelectProvider
             otherData={{
@@ -176,7 +181,7 @@ const Select: React.FC<SelectProps> = ({
             value={value}
             handleValueChange={handleValueChange}
         >
-            <div className="relative w-full" ref={ref}>
+            <div className={getSecondLevelClass()} ref={ref}>
                 <div
                     aria-expanded={open}
                     onKeyDown={onPressEnterOrSpace}
