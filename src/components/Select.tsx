@@ -166,10 +166,7 @@ const Select: React.FC<SelectProps> = ({
         [classNames, isDisabled]
     );
 
-    const getSecondLevelClass = useCallback(
-        () => (classNames?.secondLevel ? classNames.secondLevel : "relative w-full"),
-        [classNames]
-    );
+    const getSecondLevelClass = useCallback(() => classNames?.secondLevel, [classNames]);
 
     return (
         <SelectProvider

@@ -451,7 +451,7 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
             ? classNames.tagItem({ item, isDisabled })
             : `${baseClasse} ${disabledClass}`;
     }, [classNames, isDisabled]);
-    const getSecondLevelClass = React.useCallback(() => (classNames?.secondLevel ? classNames.secondLevel : "relative w-full"), [classNames]);
+    const getSecondLevelClass = React.useCallback(() => classNames?.secondLevel, [classNames]);
     return (React__default["default"].createElement(SelectProvider, { otherData: {
             formatGroupLabel,
             formatOptionLabel,
