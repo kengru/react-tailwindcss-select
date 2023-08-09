@@ -150,9 +150,12 @@ const Select: React.FC<SelectProps> = ({
                 : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`
         }`;
 
-        return classNames && classNames.menuButton
-            ? defaultClass + " " + classNames.menuButton({ isDisabled })
-            : defaultClass;
+        const finalClass =
+            classNames && classNames.menuButton
+                ? `${defaultClass} ${classNames.menuButton({ isDisabled })}`
+                : defaultClass;
+
+        return finalClass;
     }, [classNames, isDisabled, primaryColor]);
 
     const getTagItemClass = useCallback(
@@ -269,7 +272,9 @@ const Select: React.FC<SelectProps> = ({
                     <div
                         className={
                             classNames?.menu
-                                ? classNames.menu
+                                ? "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700" +
+                                  " " +
+                                  classNames.menu
                                 : "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700"
                         }
                     >

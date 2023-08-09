@@ -440,9 +440,10 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
         const defaultClass = `${baseClass} ${isDisabled
             ? "bg-gray-200"
             : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`}`;
-        return classNames && classNames.menuButton
-            ? defaultClass + " " + classNames.menuButton({ isDisabled })
+        const finalClass = classNames && classNames.menuButton
+            ? `${defaultClass} ${classNames.menuButton({ isDisabled })}`
             : defaultClass;
+        return finalClass;
     }, [classNames, isDisabled, primaryColor]);
     const getTagItemClass = React.useCallback((item) => {
         const baseClasse = "bg-gray-200 border rounded-sm flex space-x-1";
@@ -484,7 +485,9 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
                     React__default["default"].createElement("div", { className: "px-1.5" },
                         React__default["default"].createElement(ChevronIcon, { className: `transition duration-300 w-6 h-6 p-0.5${open ? " transform rotate-90 text-gray-500" : " text-gray-300"}` })))),
             open && !isDisabled && (React__default["default"].createElement("div", { className: classNames?.menu
-                    ? classNames.menu
+                    ? "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700" +
+                        " " +
+                        classNames.menu
                     : "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700" },
                 isSearchable && (React__default["default"].createElement(SearchInput, { ref: searchBoxRef, value: inputValue, placeholder: searchInputPlaceholder, onChange: e => {
                         if (onSearchInputChange &&
