@@ -441,7 +441,7 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
             ? "bg-gray-200"
             : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`}`;
         return classNames && classNames.menuButton
-            ? classNames.menuButton({ isDisabled })
+            ? defaultClass + classNames.menuButton({ isDisabled })
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
     const getTagItemClass = React.useCallback((item) => {
@@ -451,12 +451,13 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
             ? classNames.tagItem({ item, isDisabled })
             : `${baseClasse} ${disabledClass}`;
     }, [classNames, isDisabled]);
+    const getSecondLevelClass = React.useCallback(() => (classNames?.secondLevel ? classNames.secondLevel : "relative w-full"), [classNames]);
     return (React__default["default"].createElement(SelectProvider, { otherData: {
             formatGroupLabel,
             formatOptionLabel,
             classNames
         }, value: value, handleValueChange: handleValueChange },
-        React__default["default"].createElement("div", { className: "relative w-full", ref: ref },
+        React__default["default"].createElement("div", { className: getSecondLevelClass(), ref: ref },
             React__default["default"].createElement("div", { "aria-expanded": open, onKeyDown: onPressEnterOrSpace, onClick: toggle, className: getSelectClass() },
                 React__default["default"].createElement("div", { className: "grow pl-2.5 py-2 pr-2 flex flex-wrap gap-1" }, !isMultiple ? (React__default["default"].createElement("p", { className: "truncate cursor-default select-none" }, value && !Array.isArray(value) ? value.label : placeholder)) : (React__default["default"].createElement(React__default["default"].Fragment, null,
                     value === null && placeholder,
