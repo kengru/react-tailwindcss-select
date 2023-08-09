@@ -435,7 +435,7 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
             ? "bg-gray-200"
             : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`}`;
         return classNames && classNames.menuButton
-            ? defaultClass + classNames.menuButton({ isDisabled })
+            ? defaultClass + " " + classNames.menuButton({ isDisabled })
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
     const getTagItemClass = useCallback((item) => {

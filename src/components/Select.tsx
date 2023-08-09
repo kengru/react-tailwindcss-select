@@ -151,7 +151,7 @@ const Select: React.FC<SelectProps> = ({
         }`;
 
         return classNames && classNames.menuButton
-            ? defaultClass + classNames.menuButton({ isDisabled })
+            ? defaultClass + " " + classNames.menuButton({ isDisabled })
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
 
