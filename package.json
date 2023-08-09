@@ -13,6 +13,7 @@
         "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
+        "prepare": "npm run build",
         "pret": "prettier -c .",
         "pret:fix": "prettier -w .",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
