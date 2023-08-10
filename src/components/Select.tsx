@@ -152,7 +152,7 @@ const Select: React.FC<SelectProps> = ({
 
         const finalClass =
             classNames && classNames.menuButton
-                ? `${defaultClass} ${classNames.menuButton({ isDisabled })}`
+                ? `${classNames.menuButton({ isDisabled })}`
                 : defaultClass;
 
         return finalClass;

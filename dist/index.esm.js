@@ -435,7 +435,7 @@ const Select = ({ options = [], value = null, onChange, onSearchInputChange, pla
             ? "bg-gray-200"
             : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`}`;
         const finalClass = classNames && classNames.menuButton
-            ? `${defaultClass} ${classNames.menuButton({ isDisabled })}`
+            ? `${classNames.menuButton({ isDisabled })}`
             : defaultClass;
         return finalClass;
     }, [classNames, isDisabled, primaryColor]);
